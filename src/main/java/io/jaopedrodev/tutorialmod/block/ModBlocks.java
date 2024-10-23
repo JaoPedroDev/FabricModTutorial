@@ -1,6 +1,7 @@
 package io.jaopedrodev.tutorialmod.block;
 
 import io.jaopedrodev.tutorialmod.TutorialMod;
+import io.jaopedrodev.tutorialmod.block.custom.MagicBlock;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
@@ -40,6 +41,11 @@ public class ModBlocks {
               .strength(4f)
               .requiresTool()
               .sounds(BlockSoundGroup.DEEPSLATE)));
+
+  public static Block MAGIC_BLOCK = registerBlock("magic_block",
+      new MagicBlock(AbstractBlock.Settings.create()
+          .strength(2f)
+          .sounds(BlockSoundGroup.SHROOMLIGHT)));
 
   private static Block registerBlock(String name, Block block) {
     registerBlockItem(name, block);
