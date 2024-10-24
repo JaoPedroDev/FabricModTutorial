@@ -2,7 +2,7 @@ package io.jaopedrodev.tutorialmod.block.custom;
 
 import java.util.List;
 
-import io.jaopedrodev.tutorialmod.item.ModItems;
+import io.jaopedrodev.tutorialmod.util.ModTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
@@ -35,15 +35,19 @@ public class MagicBlock extends Block {
   @Override
   public void onSteppedOn(World world, BlockPos pos, BlockState state, Entity entity) {
     if (entity instanceof ItemEntity itemEntity) {
-      if (itemEntity.getStack().getItem() == ModItems.RAW_PINK_GARNET) {
+      if (isValid(itemEntity.getStack())) {
         itemEntity.setStack(new ItemStack(Items.DIAMOND, itemEntity.getStack().getCount()));
       }
     }
   }
 
+  private boolean isValid(ItemStack stack) {
+    return stack.isIn(ModTags.Items.TRANSFORMABLE_ITEMS);
+  }
+
   @Override
   public void onPlaced(World world, BlockPos pos, BlockState state, LivingEntity placer, ItemStack itemStack) {
-    world.playSound(null, pos, SoundEvents.ENTITY_CHICKEN_AMBIENT, SoundCategory.BLOCKS, 1f, 1f);
+    world.playSound(null, pos, SoundEvents.ENTITY_CHICKEN_HURT, SoundCategory.BLOCKS, 1f, 1f);
   }
 
   @Override

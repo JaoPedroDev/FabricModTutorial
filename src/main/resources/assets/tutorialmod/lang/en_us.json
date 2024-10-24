@@ -19,5 +19,6 @@
 
   "tooltip.tutorialmod.magic_block": "This block is very §9Magic§r.",
   "tooltip.tutorialmod.chisel.shift": "Very long tooltip with extra lines that appears when you press shift olha só",
-  "tooltip.tutorialmod.chisel": "Transform blocks into other blocks"
+  "tooltip.tutorialmod.chisel": "Transform blocks into other blocks",
+  "tooltip.tutorialmod.cauliflower": "Cauliflower is a crop that grows in the grass block."
 }
