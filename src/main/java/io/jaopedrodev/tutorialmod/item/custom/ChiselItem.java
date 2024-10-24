@@ -4,26 +4,32 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.world.World;
+import net.minecraft.client.gui.screen.Screen;
 
+import java.util.List;
 import java.util.Map;
+
 
 public class ChiselItem extends Item {
   private static final Map<Block, Block> CHISEL_MAP = Map.of(
     Blocks.STONE, Blocks.STONE_BRICKS,
     Blocks.END_STONE, Blocks.END_STONE_BRICKS,
     Blocks.DEEPSLATE, Blocks.DEEPSLATE_BRICKS,
-    Blocks.OAK_LOG, Blocks.OAK_WOOD,
-    Blocks.DARK_OAK_LOG, Blocks.DARK_OAK_WOOD,
-    Blocks.ACACIA_LOG, Blocks.ACACIA_WOOD,
-    Blocks.BIRCH_LOG, Blocks.BIRCH_WOOD,
-    Blocks.JUNGLE_LOG, Blocks.JUNGLE_WOOD
+    Blocks.OAK_LOG, Blocks.OAK_PLANKS,
+    Blocks.DARK_OAK_LOG, Blocks.DARK_OAK_PLANKS,
+    Blocks.ACACIA_LOG, Blocks.ACACIA_PLANKS,
+    Blocks.BIRCH_LOG, Blocks.BIRCH_PLANKS,
+    Blocks.JUNGLE_LOG, Blocks.JUNGLE_PLANKS
   );
   
   public ChiselItem(Settings settings) {
@@ -48,5 +54,15 @@ public class ChiselItem extends Item {
     }
 
     return ActionResult.SUCCESS;
+  }
+
+  @Override
+  public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+    if (Screen.hasShiftDown()){
+      tooltip.add(Text.translatable("tooltip.tutorialmod.chisel.shift"));
+    } else {
+      tooltip.add(Text.translatable("tooltip.tutorialmod.chisel"));
+    }
+    super.appendTooltip(stack, context, tooltip, type);
   }
 }

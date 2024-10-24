@@ -15,5 +15,9 @@
   "block.tutorialmod.magic_block": "Magic Block",
 
   "itemgroup.tutorialmod.pink_garnet_blocks": "Pink Garnet Blocks",
-  "itemgroup.tutorialmod.pink_garnet_items": "Pink Garnet Items"
+  "itemgroup.tutorialmod.pink_garnet_items": "Pink Garnet Items",
+
+  "tooltip.tutorialmod.magic_block": "This block is very §9Magic§r.",
+  "tooltip.tutorialmod.chisel.shift": "Very long tooltip with extra lines that appears when you press shift olha só",
+  "tooltip.tutorialmod.chisel": "Transform blocks into other blocks"
 }
