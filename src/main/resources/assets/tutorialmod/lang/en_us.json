@@ -17,6 +17,17 @@
   "itemgroup.tutorialmod.pink_garnet_blocks": "Pink Garnet Blocks",
   "itemgroup.tutorialmod.pink_garnet_items": "Pink Garnet Items",
 
+  "block.tutorialmod.pink_garnet_stairs": "Pink Garnet Stairs",
+  "block.tutorialmod.pink_garnet_slab": "Pink Garnet Slab",
+  "block.tutorialmod.pink_garnet_fence": "Pink Garnet Fence",
+  "block.tutorialmod.pink_garnet_fence_gate": "Pink Garnet Fence Gate",
+  "block.tutorialmod.pink_garnet_fence_gate": "Pink Garnet Fence Gate",
+  "block.tutorialmod.pink_garnet_button": "Pink Garnet Button",
+  "block.tutorialmod.pink_garnet_pressure_plate": "Pink Garnet Pressure Plate",
+  "block.tutorialmod.pink_garnet_door": "Pink Garnet Door",
+  "block.tutorialmod.pink_garnet_trapdoor": "Pink Garnet Trapdoor",
+  "block.tutorialmod.pink_garnet_walls": "Pink Garnet Walls",
+
   "tooltip.tutorialmod.magic_block": "This block is very §9Magic§r.",
   "tooltip.tutorialmod.chisel.shift": "Very long tooltip with extra lines that appears when you press shift olha só",
   "tooltip.tutorialmod.chisel": "Transform blocks into other blocks",
