@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import io.jaopedrodev.tutorialmod.item.ModItemGroups;
 import io.jaopedrodev.tutorialmod.item.ModItems;
 import io.jaopedrodev.tutorialmod.block.ModBlocks;
+import io.jaopedrodev.tutorialmod.component.ModDataComponentTypes;
 
 public class TutorialMod implements ModInitializer {
   public static final String MOD_ID = "tutorialmod";
@@ -19,6 +20,7 @@ public class TutorialMod implements ModInitializer {
     ModItemGroups.registerItemGroups();
     ModItems.registerModItems();
     ModBlocks.registerModBlocks();
+    ModDataComponentTypes.registerDataComponentTypes();
 
     FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES, 16000);
   }
