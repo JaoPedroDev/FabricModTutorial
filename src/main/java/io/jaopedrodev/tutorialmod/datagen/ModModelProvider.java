@@ -1,12 +1,17 @@
 package io.jaopedrodev.tutorialmod.datagen;
 
 import io.jaopedrodev.tutorialmod.block.ModBlocks;
+import io.jaopedrodev.tutorialmod.block.custom.PinkGarnetLampBlock;
 import io.jaopedrodev.tutorialmod.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
+import net.minecraft.data.client.TextureMap;
+import net.minecraft.data.client.TexturedModel;
+import net.minecraft.data.client.VariantsBlockStateSupplier;
+import net.minecraft.util.Identifier;
 
 public class ModModelProvider extends FabricModelProvider {
 
@@ -16,7 +21,8 @@ public class ModModelProvider extends FabricModelProvider {
 
   @Override
   public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
-    BlockStateModelGenerator.BlockTexturePool pinkGarnetPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.PINK_GARNET_BLOCK);
+    BlockStateModelGenerator.BlockTexturePool pinkGarnetPool = blockStateModelGenerator
+        .registerCubeAllModelTexturePool(ModBlocks.PINK_GARNET_BLOCK);
     blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PINK_GARNET_ORE);
     blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MAGIC_BLOCK);
     blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_PINK_GARNET_BLOCK);
@@ -32,6 +38,14 @@ public class ModModelProvider extends FabricModelProvider {
 
     blockStateModelGenerator.registerDoor(ModBlocks.PINK_GARNET_DOOR);
     blockStateModelGenerator.registerTrapdoor(ModBlocks.PINK_GARNET_TRAPDOOR);
+
+    Identifier lampOffIdentifier = TexturedModel.CUBE_ALL.upload(ModBlocks.PINK_GARNET_LAMP,
+        blockStateModelGenerator.modelCollector);
+    Identifier lampOnIdentifier = blockStateModelGenerator.createSubModel(ModBlocks.PINK_GARNET_LAMP, "_on",
+        Models.CUBE_ALL, TextureMap::all);
+    blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(ModBlocks.PINK_GARNET_LAMP)
+        .coordinate(BlockStateModelGenerator.createBooleanModelMap(PinkGarnetLampBlock.CLICKED, lampOnIdentifier,
+            lampOffIdentifier)));
   }
 
   @Override

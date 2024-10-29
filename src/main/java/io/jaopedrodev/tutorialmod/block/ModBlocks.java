@@ -2,6 +2,7 @@ package io.jaopedrodev.tutorialmod.block;
 
 import io.jaopedrodev.tutorialmod.TutorialMod;
 import io.jaopedrodev.tutorialmod.block.custom.MagicBlock;
+import io.jaopedrodev.tutorialmod.block.custom.PinkGarnetLampBlock;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
@@ -120,6 +121,13 @@ public class ModBlocks {
               .requiresTool()
               .nonOpaque()
               .sounds(BlockSoundGroup.AMETHYST_BLOCK)));
+
+  public static Block PINK_GARNET_LAMP = registerBlock("pink_garnet_lamp",
+      new PinkGarnetLampBlock(AbstractBlock.Settings.create()
+          .strength(1f)
+          .requiresTool()
+          .sounds(BlockSoundGroup.LANTERN)
+          .luminance(state -> state.get(PinkGarnetLampBlock.CLICKED) ? 15 : 0)));
 
   private static Block registerBlock(String name, Block block) {
     registerBlockItem(name, block);
